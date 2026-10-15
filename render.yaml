@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: smart-law-assistant
-    runtime: docker
-    plan: starter   # the embedding model + torch need more than the 512MB free tier
-    healthCheckPath: /_stcore/health
-    envVars:
-      - key: GOOGLE_API_KEY
-        sync: false   # set in the Render dashboard, never committed
