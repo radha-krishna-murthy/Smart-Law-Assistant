@@ -5,8 +5,7 @@ import time
 import streamlit as st
 from dotenv import load_dotenv
 
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -66,9 +65,9 @@ if not api_key:
     st.stop()
 
 
-@st.cache_resource(show_spinner="Loading embedding model…")
+@st.cache_resource
 def get_embeddings():
-    return HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    return GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001", google_api_key=api_key)
 
 
 def process_pdf(pdf_file):

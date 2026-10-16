@@ -6,7 +6,7 @@ A Retrieval-Augmented Generation (RAG) chatbot that helps lawyers and legal prof
 
 - Upload and process legal PDF documents
 - Ask detailed questions about the document
-- Local text embeddings with HuggingFace (`all-MiniLM-L6-v2`, no API needed)
+- Text embeddings via the Gemini API (`gemini-embedding-001`), so no local torch model and a small deploy footprint
 - Streaming answers from Google Gemini (2.5 Flash or 2.5 Pro)
 - Chat interface with history, model/temperature/retrieval settings and page-numbered source passages
 - Shows the context chunks used for each answer
